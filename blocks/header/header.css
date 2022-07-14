@@ -3,7 +3,7 @@ header nav {
   display: grid;
   grid-template:
     'hamburger brand tools' var(--nav-height)
-    'sections sections sections' 1fr / 50px 1fr 50px;
+    'sections sections sections' 1fr / 10px 1fr 20px;
   align-items: center;
   padding: 0 2rem;
   position: fixed;
