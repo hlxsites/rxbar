@@ -1,10 +1,15 @@
+.columns-container h2 {
+    text-align: center;
+}
+
 .columns > div {
     display: flex;
     flex-direction: column;
+    text-align: center;
 }
 
-.columns img {
-    width: 100%;
+.columns-container .button-container {
+    text-align: center;
 }
 
 @media (min-width: 900px) {

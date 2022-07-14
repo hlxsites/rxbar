@@ -20,7 +20,7 @@
   --text-color: #000;
 
   /* fonts */
-  --body-font-family: 'helvetica neue', helvetica, ubuntu, roboto, noto, sans-serif;
+  --body-font-family: 'Circular' ,Helvetica,Arial,sans-serif;;
   --heading-font-family: var(--body-font-family);
   --fixed-font-family: 'Roboto Mono', menlo, consolas, 'Liberation Mono', monospace;
 
@@ -36,10 +36,21 @@
   --heading-font-size-m: 24px;
   --heading-font-size-s: 20px;
   --heading-font-size-xs: 18px;
+  --heading-font-size-xxs: 14px;
 
   /* nav height */
-  --nav-height: 64px;
+  --nav-height: 80px;
+}
 
+@font-face {
+  font-family: "Circular";
+  src: url("./fonts/lineto-circular-pro-book.woff") format('woff');
+}
+
+@font-face {
+  font-family: "Circular";
+  src: url("./fonts/lineto-circular-pro-bold.woff") format('woff');
+  font-weight: bold;
 }
 
 body {
@@ -113,22 +124,20 @@ a.button:any-link, button {
   box-sizing: border-box;
   text-decoration: none;
   border: 2px solid transparent;
-  padding: 5px 30px;
+  padding: 10px 60px;
   text-align: center;
   font-style: normal; 
   font-weight: 600;
   cursor: pointer;
-  color: var(--background-color);
-  background-color: var(--link-color);
+  background-color: var(--background-color);
+  color: var(--text-color);
   margin: 16px 0;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  border-radius: 30px;
 }
 
 a.button:hover, a.button:focus, button:hover, button:focus  {
-  background-color: var(--link-hover-color);
   cursor: pointer;
 }
 
@@ -142,7 +151,6 @@ a.button.secondary, button.secondary {
   border: 2px solid currentcolor;
   color: var(--text-color)
 } 
-
 
 main input {
   font-size: 1.25rem;
@@ -202,6 +210,19 @@ main img {
   max-width: 100%;
   width: auto;
   height: auto;
+}
+
+main .dark {
+  background-color: #000;
+  color: #fff;
+}
+
+main .purple h2 {
+  color: rgb(187, 41, 187);
+}
+
+main .default-content-wrapper {
+  text-align: center;
 }
 
 @media (min-width: 600px) {

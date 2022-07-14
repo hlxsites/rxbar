@@ -13,10 +13,14 @@ header nav {
   height: var(--nav-height);
   box-sizing: border-box;
   font-family: var(--body-font-family);
+  border-bottom: 3px solid black;
 }
 
 header nav a:any-link {
   color: currentcolor;
+  font-size: 18px;
+  text-transform: uppercase;
+  font-weight: bold;
 }
 
 header nav[aria-expanded='true'] {
@@ -32,6 +36,7 @@ header .nav-brand {
   font-size: 22px;
   font-weight: 700;
   line-height: 1em;
+  text-align: center;
 }
 
 header nav .nav-brand p {
@@ -39,7 +44,8 @@ header nav .nav-brand p {
 }
 
 header nav .nav-brand img {
-  width: 128px;
+  width: 250px;
+  height: auto;
 }
 
 /* hamburger */
@@ -199,6 +205,7 @@ header nav[aria-expanded='true'] .nav-tools li {
     background-color: unset;
     width: unset;
     margin: 0;
+    justify-content: center;
   }
   
   header nav[aria-expanded='true'] .nav-sections ol {

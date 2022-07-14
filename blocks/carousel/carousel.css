@@ -1,0 +1,129 @@
+main .section.carousel-container {
+  padding: 0;
+}
+
+main .section.carousel-container .carousel-wrapper {
+  max-width: 100%;
+}
+
+main .carousel h2 {
+  font-size: var(--heading-font-size-xxl);
+  font-weight: 400;
+}
+
+main .carousel a:any-link {
+  color: white;
+}
+
+main .carousel {
+  display: flex;
+  scroll-snap-type: x mandatory;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+  font-family: var(--heading-font-family);
+}
+
+main .carousel picture {
+  box-sizing: border-box;
+}
+
+main .carousel img {
+  object-fit: contain;
+  width: 100%;
+  height: auto;
+  object-position: 90%;
+}
+
+main .carousel .slide {
+  width: 100%;
+}  
+
+main .carousel .carousel-image-desktop {
+  display: none;
+}
+  
+main .carousel > div {
+  width: 100%;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  position: relative;
+  min-height: 250px;
+  display: flex;
+}
+
+main .carousel div.carousel-text {
+  width: 90%;
+  margin: 0 auto;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+main .carousel div.carousel-image {
+  line-height: 0;
+}
+  
+
+main .carousel::-webkit-scrollbar {
+    display: none;
+}
+
+main .carousel-wrapper .carousel-buttons {
+  text-align: center;
+  margin-top: -60px;
+  position: absolute;
+  display: flex;
+  right: 0;
+  left: 0;
+  justify-content: center;
+}
+
+main .carousel-buttons button {
+  display: block;
+  height: 14px;
+  width: 14px;
+  padding: 0;
+  margin: 10px;
+  border-radius: 7px;
+  background-color: #ccc;
+  border: 1px solid #fff;
+  opacity: 0.5;
+}
+
+main .carousel-buttons button.selected {
+  background-color: #000;
+  opacity: 1.0;
+}
+
+main .carousel a.button:any-link {
+  font-family: var(--body-font-family);
+}
+
+main .carousel p.button-container {
+  margin: 0;
+}
+
+main .carousel a.button.secondary:any-link {
+  color: white;
+  font-size: var(--body-font-size-s);
+  background-color: #002547f0;
+}
+
+main .carousel a.button.primary:any-link {
+  background-color: #caaa77f0;
+  font-weight: 400;
+  font-size: var(--body-font-size-l);
+  font-family: var(--body-font-family);
+  border-color: transparent;
+}
+
+@media (min-width: 900px) {
+  main .carousel .carousel-image-desktop {
+    display: block;
+  }
+
+  main .carousel .carousel-image-mobile {
+    display: none;
+  }
+}
