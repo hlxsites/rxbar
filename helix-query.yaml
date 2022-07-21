@@ -4,27 +4,23 @@ version: 1
 indices:
   site:
     include:
-      - '/mysite/**'
+      - '/shop/**'
     exclude:
       - '**/Document.*'
-    # target: SharePoint URL of your query index, e.g. <shared-folder-url>/query-index.xlsx
+    target: /query-index
     properties:
-      author:
-        select: head > meta[name="author"]
-        value: |
-          attribute(el, 'content')
       title:
         select: head > meta[property="og:title"]
         value: |
           attribute(el, 'content')
-      date:
-        select: head > meta[name="publication-date"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
       image:
         select: head > meta[property="og:image"]
         value: |
           match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
+      secondary-image:
+        select: main .product-details > div > div:nth-child(2) img
+        value: |
+          attribute(el, 'src')
       description:
         select: head > meta[name="description"]
         value: |
@@ -33,11 +29,7 @@ indices:
         select: head > meta[name="category"]
         value: |
           attribute(el, 'content')
-      topics:
-        select: head > meta[name="topics"]
+      badges:
+        select: head > meta[name="badges"]
         value: |
           attribute(el, 'content')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
