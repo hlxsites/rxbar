@@ -1,0 +1,25 @@
+.product .info-wrap .info {
+  padding: 15px;
+}
+
+.product .info-wrap .info .button {
+  margin-top: 20px;
+  width: 100%;
+}
+
+@media (min-width: 900px) {
+  .product .info-wrap {
+    display: flex;
+    max-width: 1240px;
+    margin: 0 auto;
+    gap: 50px;
+  }
+
+  .product .info-wrap > div {
+    width: 100%;
+  }
+
+  .product .info-wrap .info .button {
+    width: auto;
+  }
+}

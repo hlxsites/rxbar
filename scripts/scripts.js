@@ -10,6 +10,8 @@
  * governing permissions and limitations under the License.
  */
 
+import decorateProductPage from '../templates/product/product.js';
+
 /**
  * log RUM if part of the sample.
  * @param {string} checkpoint identifies the checkpoint in funnel
@@ -126,7 +128,10 @@ export function toClassName(name) {
  * @returns {string} The camelCased name
  */
 export function toCamelCase(name) {
-  return toClassName(name).replace(/-([a-z])/g, (g) => g[1].toUpperCase());
+  return name
+    .replace(/\s(.)/g, ($1) => $1.toUpperCase())
+    .replace(/\s/g, '')
+    .replace(/^(.)/, ($1) => $1.toLowerCase());
 }
 
 /**
@@ -655,6 +660,7 @@ async function loadEager(doc) {
 async function loadLazy(doc) {
   const main = doc.querySelector('main');
   await loadBlocks(main);
+  decorateProductPage(main);
 
   const { hash } = window.location;
   const element = hash ? main.querySelector(hash) : false;
@@ -675,4 +681,15 @@ function loadDelayed() {
   // eslint-disable-next-line import/no-cycle
   window.setTimeout(() => import('./delayed.js'), 3000);
   // load anything that can be postponed to the latest here
+}
+
+/**
+ * Return site placeholders
+ * @returns {Object} Site placeholders
+ */
+export async function getPlaceholders() {
+  if (!window.placeholders) {
+    window.placeholders = await fetchPlaceholders();
+  }
+  return window.placeholders;
 }
