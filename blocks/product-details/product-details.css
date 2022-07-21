@@ -1,0 +1,53 @@
+.product-details {
+  padding: 60px 15px;
+}
+
+.product-details > div > div{
+  width: 100%;
+}
+
+.product-details .nutrition-badges {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+.product-details .nutrition-badges .badge {
+  font-size: var(--body-font-size-xs);
+  font-weight: 700;
+  text-align: center;
+  width: 90px;
+}
+
+.product-details .nutrition-badges .badge img {
+  width: 45px;
+  height: 45px;
+}
+
+.product-details .nutrition-badges .badge p {
+  margin: 0;
+}
+
+.product-details .disclaimer {
+  color: var(--text-color);
+  font-size: var(--body-font-size-xs);
+  margin-bottom: 50px;
+}
+
+.product-details > div div picture{
+  display: flex;
+}
+
+@media (min-width: 900px) {
+  .product-details {
+    padding-top: 100px;
+    padding-bottom: 30px;
+  }
+
+
+  .product-details > div {
+    max-width: 1240px;
+    margin: 0 auto;
+    display: flex;
+  }
+}
