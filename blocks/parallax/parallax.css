@@ -1,0 +1,47 @@
+main .parallax-container {
+  padding: 0;
+}
+
+main .parallax-container .parallax-wrapper {
+  max-width: 100%;
+}
+
+main .parallax-background {
+  overflow: hidden;
+  background-size: cover;
+  width: 100%;
+  height: auto;
+  padding: 20px 0;
+}
+
+main .parallax-background.expanded {
+  height: auto;
+}
+
+main .parallax-background > div {
+  text-align: center;
+}
+
+main .parallax-background .read-more {
+  padding-top: 10px;
+  font-size: var(--body-font-size-s);
+  color: #969696;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+main .parallax-background p {
+  display: none;
+  font-size: var(--body-font-size-s);
+  max-width: 900px;
+  margin:0 auto;
+  padding: 20px 0;
+}
+
+main .parallax-background.expanded p {
+  display: block;
+}
+
+main .parallax-background p:first-of-type {
+  display: block;
+}
