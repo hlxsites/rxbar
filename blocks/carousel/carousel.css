@@ -7,8 +7,8 @@ main .section.carousel-container .carousel-wrapper {
 }
 
 main .carousel h2 {
-  font-size: var(--heading-font-size-xxl);
-  font-weight: 400;
+  font-size: var(--heading-font-size-xl);
+  font-weight: 700;
 }
 
 main .carousel a:any-link {
@@ -40,6 +40,17 @@ main .carousel .slide {
 
 main .carousel .carousel-image-desktop {
   display: none;
+}
+
+main .carousel .carousel-text-slide {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px;
+}
+
+main .carousel .carousel-text-slide p {
+  font-size: var(--body-font-size-s);
+  padding-bottom: 30px;
 }
   
 main .carousel > div {
@@ -116,6 +127,26 @@ main .carousel a.button.primary:any-link {
   font-size: var(--body-font-size-l);
   font-family: var(--body-font-family);
   border-color: transparent;
+}
+
+.slide-blue {
+  background-color: #98d9e9;
+  color: #513629;
+}
+
+.slide-red {
+  background-color: #a1412b;
+  color: #fff;
+}
+
+.slide-yellow {
+  background-color: #fdb714;
+  color: #863b20;
+}
+
+.slide-brown {
+  background-color: #653b2c;
+  color: #fdb714;
 }
 
 @media (min-width: 900px) {
