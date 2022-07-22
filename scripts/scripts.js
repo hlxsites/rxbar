@@ -68,12 +68,12 @@ HelixApp.init({
   .withPostDecorateBlockHook((main) => {
     const template = getMetadata('template');
     if (template === 'Product') {
-      import('../templates/product/product.js').then((decorate) => {
-        decorate(main);
+      import('../templates/product/product.js').then((module) => {
+        module.default(main);
       });
     } else if (template === 'Category') {
-      import('../templates/category/category.js').then((decorate) => {
-        decorate(main);
+      import('../templates/category/category.js').then((module) => {
+        module.default(main);
       });
     }
     // document.querySelector('body').classList.add('appear');
