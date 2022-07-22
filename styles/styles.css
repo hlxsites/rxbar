@@ -20,7 +20,7 @@
   --text-color: #000;
 
   /* fonts */
-  --body-font-family: 'Circular' ,Helvetica,Arial,sans-serif;;
+  --body-font-family: 'Circular' ,'Helvetica','Arial,sans-serif';
   --heading-font-family: var(--body-font-family);
   --fixed-font-family: 'Roboto Mono', menlo, consolas, 'Liberation Mono', monospace;
 
@@ -44,14 +44,16 @@
 }
 
 @font-face {
-  font-family: "Circular";
+  font-family: Circular;
   src: url("./fonts/lineto-circular-pro-book.woff") format('woff');
+  font-display: swap;
 }
 
 @font-face {
-  font-family: "Circular";
+  font-family: Circular;
   src: url("./fonts/lineto-circular-pro-bold.woff") format('woff');
   font-weight: bold;
+  font-display: swap;
 }
 
 body {
@@ -220,7 +222,7 @@ main .dark {
 }
 
 main .purple h2 {
-  color: rgb(187, 41, 187);
+  color: #bb29bb;
 }
 
 main .default-content-wrapper {
