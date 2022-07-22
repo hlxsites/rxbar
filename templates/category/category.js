@@ -40,9 +40,9 @@ export default async function decorate(main) {
   const container = document.createElement('div');
   container.classList.add('category-container');
 
-  // products.forEach((product) => {
-  //   container.appendChild(renderProductCard(product));
-  // });
+  products.forEach((product) => {
+    container.appendChild(renderProductCard(product));
+  });
 
-  // main.appendChild(container);
+  main.appendChild(container);
 }
