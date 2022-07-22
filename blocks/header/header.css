@@ -44,7 +44,7 @@ header nav .nav-brand p {
 }
 
 header nav .nav-brand img {
-  width: 250px;
+  width: 200px;
   height: auto;
 }
 
@@ -196,7 +196,8 @@ header nav[aria-expanded='true'] .nav-tools li {
   }
 
   header nav .nav-brand {
-    flex: 0 0 150px;
+    flex: 0 0 250px;
+    width: 250px;
   }
 
   header nav .nav-sections ul {
