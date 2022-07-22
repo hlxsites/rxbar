@@ -10,7 +10,8 @@
  * governing permissions and limitations under the License.
  */
 
-import { getMetadata, getPlaceholders, toCamelCase } from '../../scripts/scripts.js';
+import { getMetadata } from '../../scripts/helix-web-library.esm.js';
+import { getPlaceholders, toCamelCase } from '../../scripts/scripts.js';
 
 function createNutritionBadge(title, image) {
   const div = document.createElement('div');

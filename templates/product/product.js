@@ -10,7 +10,7 @@
  * governing permissions and limitations under the License.
  */
 
-import { getMetadata, loadCSS } from '../../scripts/scripts.js';
+import { getMetadata, loadCSS } from '../../scripts/helix-web-library.esm.js';
 
 function renderScafolding(title, subtitle) {
   return /* html */`
