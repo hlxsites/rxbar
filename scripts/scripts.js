@@ -49,6 +49,7 @@ export function toCamelCase(name) {
 
 HelixApp.init({
   rumEnabled: true,
+  autoAppear: false,
   rumGeneration: 'project-1',
   lcpBlocks: ['hero'],
 })
@@ -65,6 +66,9 @@ HelixApp.init({
     if (template === 'Product') {
       decorateProductPage(main);
     }
+  })
+  .withLoadLazy(() => {
+    document.querySelector('body').classList.add('appear');
   })
   .withLoadDelayed(() => {
     // eslint-disable-next-line import/no-cycle
