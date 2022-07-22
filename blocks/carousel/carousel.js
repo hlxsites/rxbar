@@ -1,6 +1,6 @@
 export default function decorate(block) {
   const slideStylesConfig = block.parentElement.parentElement.getAttribute('data-slidethemes');
-  const slideStyles = slideStylesConfig.replace(/, /g, ',').split(',');
+  const slideStyles = slideStylesConfig ? slideStylesConfig.replace(/, /g, ',').split(',') : [];
   const buttons = document.createElement('div');
   buttons.className = 'carousel-buttons';
   [...block.children].forEach((row, i) => {
