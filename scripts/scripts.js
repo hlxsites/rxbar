@@ -11,18 +11,8 @@
  */
 
 import decorateProductPage from '../templates/product/product.js';
-import { HelixApp, buildBlock, getMetadata, fetchPlaceholders } from './helix-web-library.esm.js';
-
-function buildHeroBlock(main) {
-  const h1 = main.querySelector('h1');
-  const picture = main.querySelector('picture');
-  // eslint-disable-next-line no-bitwise
-  if (h1 && picture && (h1.compareDocumentPosition(picture) & Node.DOCUMENT_POSITION_PRECEDING)) {
-    const section = document.createElement('div');
-    section.append(buildBlock('hero', { elems: [picture, h1] }));
-    main.prepend(section);
-  }
-}
+import decorateCategoryPage from '../templates/category/category.js';
+import { HelixApp, getMetadata, fetchPlaceholders } from './helix-web-library.esm.js';
 
 /**
  * Return site placeholders
@@ -47,24 +37,42 @@ export function toCamelCase(name) {
     .replace(/^(.)/, ($1) => $1.toLowerCase());
 }
 
+export async function fetchQueryIndex() {
+  const resp = await fetch('/query-index.json');
+  const json = await resp.json();
+  const lookup = {};
+  json.data.forEach((row) => {
+    lookup[row.path] = row;
+  });
+  window.pageIndex = { data: json.data, lookup };
+}
+
+export async function getProductsByCategory(category) {
+  if (!window.pageIndex) {
+    await fetchQueryIndex();
+  }
+  return window.pageIndex.data.filter((item) => item.category === category);
+}
+
+export async function getAllProducts() {
+  if (!window.pageIndex) {
+    await fetchQueryIndex();
+  }
+  return window.pageIndex.data;
+}
+
 HelixApp.init({
   rumEnabled: true,
   autoAppear: false,
   rumGeneration: 'project-1',
   lcpBlocks: ['hero'],
 })
-  .withBuildAutoBlocks((main) => {
-    try {
-      buildHeroBlock(main);
-    } catch (error) {
-      console.error('Auto Blocking failed', error);
-    }
-  })
   .withPostDecorateBlockHook((main) => {
     const template = getMetadata('template');
-    console.log('template', template);
     if (template === 'Product') {
       decorateProductPage(main);
+    } else if (template === 'Category') {
+      decorateCategoryPage(main);
     }
   })
   .withLoadLazy(() => {
