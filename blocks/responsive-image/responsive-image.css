@@ -1,0 +1,26 @@
+main .responsive-image-container {
+  padding: 0;
+}
+
+main .responsive-image-container .responsive-image-wrapper {
+  width: 100%;
+  max-width: 100%;
+}
+
+main .responsive-image-container .responsive-image-wrapper img {
+  width: 100%;
+}
+
+.responsive-image .desktop {
+  display: none;
+}
+
+@media (min-width: 900px) {
+  .responsive-image .desktop {
+    display: block;
+  }
+
+  .responsive-image .mobile {
+    display: none;
+  }
+}
