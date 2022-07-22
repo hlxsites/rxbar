@@ -74,8 +74,6 @@ HelixApp.init({
     } else if (template === 'Category') {
       decorateCategoryPage(main);
     }
-  })
-  .withLoadLazy(() => {
     document.querySelector('body').classList.add('appear');
   })
   .withLoadDelayed(() => {
