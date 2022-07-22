@@ -63,7 +63,7 @@ export async function getAllProducts() {
 
 HelixApp.init({
   rumEnabled: true,
-  autoAppear: false,
+  autoAppear: true,
   rumGeneration: 'project-1',
   lcpBlocks: ['hero'],
 })
@@ -74,7 +74,7 @@ HelixApp.init({
     } else if (template === 'Category') {
       decorateCategoryPage(main);
     }
-    document.querySelector('body').classList.add('appear');
+    // document.querySelector('body').classList.add('appear');
   })
   .withLoadDelayed(() => {
     // eslint-disable-next-line import/no-cycle
