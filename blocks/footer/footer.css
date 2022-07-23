@@ -38,6 +38,7 @@
 
 .footer > div:nth-child(1) > div{
   width: 200px;
+  min-height: 200px;
 }
 
 .footer > div:nth-child(1) > div:last-of-type p{

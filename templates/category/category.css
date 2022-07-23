@@ -13,6 +13,10 @@ main > .section:first-of-type {
   font-weight: 700;
 }
 
+.default-content-wrapper p:nth-child(2) {
+  min-height: 115px;
+}
+
 .category-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -67,6 +71,10 @@ main > .section:first-of-type {
 
   .category-container .actions .button {
     width: 152px;
+  }
+
+  .default-content-wrapper p:nth-child(2) {
+    min-height: 54px;
   }
 }
 
