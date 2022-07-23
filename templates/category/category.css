@@ -1,3 +1,7 @@
+main {
+  min-height: 1430px;
+}
+
 main > .section:first-of-type {
   padding-top: 20px;
 }
