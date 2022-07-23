@@ -36,8 +36,8 @@ main {
   display: flex;
   flex: 0 0 50%;
   flex-direction: column;
-  padding-left: 30px;
-  padding-right: 30px;
+  padding-left: 10px;
+  padding-right: 10px;
   margin-bottom: 5px;
   padding-top:20px;
   align-items: stretch;
@@ -111,13 +111,17 @@ main {
 
   .category-container .product-card {
     flex: 0 0 33%;
+    padding-left: 30px;
+    padding-right: 30px;
   }
 
   .category-container .actions .button {
     width: 152px;
   }
 
-  .default-content-wrapper p:nth-child(2) {
+  .default-content-wrapper p:nth-child(1) {
+    padding: 5px 16px;
+    display: block;
     min-height: 54px;
   }
 
