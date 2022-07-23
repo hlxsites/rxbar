@@ -9,6 +9,7 @@ main .responsive-image-container .responsive-image-wrapper {
 
 main .responsive-image-container .responsive-image-wrapper img {
   width: 100%;
+  object-fit: contain;
 }
 
 .responsive-image .desktop {
