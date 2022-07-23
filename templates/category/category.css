@@ -2,10 +2,6 @@ main {
   min-height: 1430px;
 }
 
-main > .section:first-of-type {
-  padding-top: 20px;
-}
-
 .default-content-wrapper p {
   margin: 0;
   text-align: left;
@@ -35,8 +31,7 @@ main > .section:first-of-type {
 }
 
 .category-container .product-card .image picture img {
-  min-height: 275px;
-  aspect-ratio: attr(width) / attr(height);
+  aspect-ratio: 1 / 1;
 }
 
 .category-container .details {

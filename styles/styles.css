@@ -178,6 +178,10 @@ main .section {
   padding: 64px 16px;
 }
 
+main > .section:first-of-type {
+  padding-top: 20px;
+}
+
 main pre {
   background-color: var(--overlay-background-color);
   padding: 1em;
