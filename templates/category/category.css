@@ -67,6 +67,11 @@ main {
   object-fit: contain;
 }
 
+.category-container .product-card .image picture img {
+  min-height: 275px;
+  aspect-ratio: 1 / 1;
+}
+
 .category-container .details {
   padding-top: 20px;
   min-height: 150px;
@@ -124,6 +129,14 @@ main {
   .category-container .details .subtitle {
     font-size: var(--body-font-size-s);
     line-height: 35px;
+  }
+
+  .category-container .actions .button {
+    width: 152px;
+  }
+
+  .default-content-wrapper p:nth-child(2) {
+    min-height: 54px;
   }
 }
 
