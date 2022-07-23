@@ -10,7 +10,7 @@
  * governing permissions and limitations under the License.
  */
 
-import { getMetadata, loadCSS } from '../../scripts/helix-web-library.esm.js';
+import { getMetadata, loadCSS, createOptimizedPicture } from '../../scripts/helix-web-library.esm.js';
 import { getProductsByCategory, getAllProducts } from '../../scripts/scripts.js';
 
 function renderProductCard(product) {
@@ -18,7 +18,7 @@ function renderProductCard(product) {
   cardWrapper.classList.add('product-card');
   cardWrapper.innerHTML = /* html */`
     <a href="${product.path}" class="image">
-      <img width="240" height="274" alt="${product.title}" src="${product.image}">
+      ${createOptimizedPicture(product.image, product.title, true, [{ width: '275' }]).outerHTML}
     </a>
     <div class="details">
       <a class="title" href="${product.path}">${product.title}</a>

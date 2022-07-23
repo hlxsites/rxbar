@@ -1,3 +1,7 @@
+main > .section:first-of-type {
+  padding-top: 20px;
+}
+
 .default-content-wrapper p {
   margin: 0;
   text-align: left;
@@ -22,6 +26,10 @@
   min-height: 540px;
 }
 
+.category-container .product-card .image picture {
+  min-height: 275px;
+}
+
 .category-container .details {
   min-height: 130px;
 }
@@ -30,6 +38,8 @@
   font-size: var(--heading-font-size-xs);
   color: #000;
   font-weight: bold;
+  display: block;
+  line-height: 24px;
 }
 
 .category-container .details .subtitle {
@@ -49,9 +59,13 @@
   .category-container {
     grid-template-columns: repeat(3, 1fr);
   }
+
+  .category-container .actions .button {
+    width: 152px;
+  }
 }
 
-@media (min-width: 900px) {
+@media (min-width: 1080px) {
   .category-container {
     grid-template-columns: repeat(4, 1fr);
   }
