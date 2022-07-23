@@ -10,8 +10,6 @@
  * governing permissions and limitations under the License.
  */
 
-import decorateProductPage from '../templates/product/product.js';
-import decorateCategoryPage from '../templates/category/category.js';
 import { HelixApp, getMetadata, fetchPlaceholders } from './helix-web-library.esm.js';
 
 /**
@@ -63,18 +61,22 @@ export async function getAllProducts() {
 
 HelixApp.init({
   rumEnabled: true,
-  autoAppear: false,
+  autoAppear: true,
   rumGeneration: 'project-1',
   lcpBlocks: ['hero'],
 })
   .withPostDecorateBlockHook((main) => {
     const template = getMetadata('template');
     if (template === 'Product') {
-      decorateProductPage(main);
+      import('../templates/product/product.js').then((module) => {
+        module.default(main);
+      });
     } else if (template === 'Category') {
-      decorateCategoryPage(main);
+      import('../templates/category/category.js').then((module) => {
+        module.default(main);
+      });
     }
-    document.querySelector('body').classList.add('appear');
+    // document.querySelector('body').classList.add('appear');
   })
   .withLoadDelayed(() => {
     // eslint-disable-next-line import/no-cycle

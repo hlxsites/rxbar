@@ -10,15 +10,21 @@
  * governing permissions and limitations under the License.
  */
 
-import { getMetadata, loadCSS } from '../../scripts/helix-web-library.esm.js';
+import { getMetadata, loadCSS, createOptimizedPicture } from '../../scripts/helix-web-library.esm.js';
 import { getProductsByCategory, getAllProducts } from '../../scripts/scripts.js';
 
 function renderProductCard(product) {
   const cardWrapper = document.createElement('div');
   cardWrapper.classList.add('product-card');
+
+  const image = createOptimizedPicture(product.image, product.title, true, [{ width: '275' }]);
+  const img = image.querySelector('img');
+  img.width = '275';
+  img.height = '275';
+
   cardWrapper.innerHTML = /* html */`
     <a href="${product.path}" class="image">
-      <img width="240" height="274" alt="${product.title}" src="${product.image}">
+      ${image.outerHTML}
     </a>
     <div class="details">
       <a class="title" href="${product.path}">${product.title}</a>
@@ -45,6 +51,4 @@ export default async function decorate(main) {
   });
 
   main.appendChild(container);
-  console.log('category', category);
-  console.log('products', products);
 }

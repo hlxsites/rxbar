@@ -46,11 +46,13 @@ main .carousel .carousel-text-slide {
   max-width: 1200px;
   margin: 0 auto;
   padding: 40px;
+  padding-bottom: 80px;
 }
 
-main .carousel .carousel-text-slide p {
+main .carousel .carousel-text-slide p{
+  padding: 5px 0;
+  margin: 0;
   font-size: var(--body-font-size-s);
-  padding-bottom: 30px;
 }
   
 main .carousel > div {

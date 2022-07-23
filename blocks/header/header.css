@@ -44,7 +44,7 @@ header nav .nav-brand p {
 }
 
 header nav .nav-brand img {
-  width: 250px;
+  width: 200px;
   height: auto;
 }
 
@@ -141,10 +141,15 @@ header nav .nav-tools {
   grid-area: tools;
   flex: 0 0 auto;
   height: 22px;
+  width: 35px;
 }
 
 header nav .nav-tools p {
   margin: 0;
+}
+
+header nav .nav-tools .icon-cart {
+  width: 30px;
 }
 
 header nav[aria-expanded='true'] .nav-tools img {
@@ -196,7 +201,8 @@ header nav[aria-expanded='true'] .nav-tools li {
   }
 
   header nav .nav-brand {
-    flex: 0 0 150px;
+    flex: 0 0 250px;
+    width: 250px;
   }
 
   header nav .nav-sections ul {
