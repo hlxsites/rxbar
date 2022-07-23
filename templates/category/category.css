@@ -26,8 +26,9 @@ main > .section:first-of-type {
   min-height: 540px;
 }
 
-.category-container .product-card .image picture {
+.category-container .product-card .image picture img {
   min-height: 275px;
+  aspect-ratio: attr(width) / attr(height);
 }
 
 .category-container .details {
