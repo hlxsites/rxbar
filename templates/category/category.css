@@ -94,11 +94,6 @@ main {
 }
 
 @media (min-width: 780px) {
-  .default-content-wrapper p:nth-child(2) {
-    min-height: 117px;
-    display: block;
-  }
-
   .category-container .details {
     padding-top: 20px;
     min-height: 200px;
@@ -128,10 +123,6 @@ main {
   .category-container .details .subtitle {
     font-size: var(--body-font-size-s);
     line-height: 35px;
-  }
-
-  .category-container .actions .button {
-    width: 152px;
   }
 
   .default-content-wrapper p:nth-child(2) {
