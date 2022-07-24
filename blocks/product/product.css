@@ -1,0 +1,30 @@
+.product {
+  display: flex;
+  flex-direction: column;
+}
+
+.product .info {
+  padding: 15px;
+}
+
+.product .info .button {
+  margin-top: 20px;
+  width: 100%;
+}
+
+@media (min-width: 900px) {
+  .product {
+    flex-direction: row;
+    max-width: 1240px;
+    margin: 0 auto;
+    gap: 50px;
+  }
+
+  .product > div {
+    width: 100%;
+  }
+
+  .product .info .button {
+    width: auto;
+  }
+}

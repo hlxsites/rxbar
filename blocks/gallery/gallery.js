@@ -29,6 +29,7 @@ class Gallery {
       const galleryImageContainer = document.createElement('div');
       galleryImageContainer.classList.add('gallery-image');
       this.galleryImage = document.createElement('img');
+      this.galleryImage.loading = 'eager';
       [this.galleryImage.src] = images;
       galleryImageContainer.append(this.galleryImage);
       block.prepend(galleryImageContainer);
