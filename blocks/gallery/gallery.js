@@ -10,6 +10,8 @@
  * governing permissions and limitations under the License.
  */
 
+import { createOptimizedPicture, getMetadata } from '../../scripts/helix-web-library.esm.js';
+
 function updateWidthParam(href, width) {
   const url = new URL(href);
   const { searchParams } = url;
@@ -22,18 +24,19 @@ class Gallery {
   constructor(block) {
     this.block = block;
     const imageContainers = block.querySelectorAll(':scope > div');
+    const title = getMetadata('og:title');
     if (imageContainers.length > 0) {
       const slidesContainer = document.createElement('div');
       slidesContainer.classList.add('slide-container');
       const images = Array.from(imageContainers).map((container) => {
-        const img = container.querySelector('img');
-        img.src = updateWidthParam(img.src, 90);
+        const img = container.querySelector('img').src;
         container.classList.add('gallery-slide');
         container.addEventListener('click', this.onSlideSelected);
         slidesContainer.append(container);
-        img.width = 90;
-        img.height = 90;
-        return img.src;
+        const thumb = createOptimizedPicture(img, title, false, [{ width: '90' }]);
+        container.innerHTML = '';
+        container.append(thumb);
+        return img;
       });
 
       block.append(slidesContainer);
