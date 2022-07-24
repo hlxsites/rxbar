@@ -10,6 +10,14 @@
  * governing permissions and limitations under the License.
  */
 
+function updateWidthParam(href, width) {
+  const url = new URL(href);
+  const { searchParams } = url;
+  searchParams.set('width', width);
+  url.search = searchParams.toString();
+  return url.toString();
+}
+
 class Gallery {
   constructor(block) {
     this.block = block;
@@ -18,10 +26,12 @@ class Gallery {
       const slidesContainer = document.createElement('div');
       slidesContainer.classList.add('slide-container');
       const images = Array.from(imageContainers).map((container) => {
+        const img = container.querySelector('img');
+        img.src = updateWidthParam(img.src, 90);
         container.classList.add('gallery-slide');
         container.addEventListener('click', this.onSlideSelected);
         slidesContainer.append(container);
-        return container.querySelector('img').src;
+        return img.src;
       });
 
       block.append(slidesContainer);
@@ -30,7 +40,8 @@ class Gallery {
       galleryImageContainer.classList.add('gallery-image');
       this.galleryImage = document.createElement('img');
       this.galleryImage.loading = 'eager';
-      [this.galleryImage.src] = images;
+      const [mainImage] = images;
+      this.galleryImage.src = updateWidthParam(mainImage, 530);
       galleryImageContainer.append(this.galleryImage);
       block.prepend(galleryImageContainer);
     }
@@ -43,7 +54,7 @@ class Gallery {
 
     this.selectedSlide = e.target.closest('.gallery-slide');
     e.target.closest('.gallery-slide').classList.add('selected');
-    this.galleryImage.src = e.target.src;
+    this.galleryImage.src = updateWidthParam(e.target.src, 530);
   };
 }
 
