@@ -67,11 +67,6 @@ main {
   object-fit: contain;
 }
 
-.category-container .product-card .image picture img {
-  min-height: 275px;
-  aspect-ratio: 1 / 1;
-}
-
 .category-container .details {
   padding-top: 20px;
   min-height: 150px;
