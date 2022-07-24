@@ -1,3 +1,7 @@
+:scope main > .section:first-of-type {
+    padding: 0;
+}
+
 .product {
   display: flex;
   flex-direction: column;
@@ -10,6 +14,12 @@
 .product .info .button {
   margin-top: 20px;
   width: 100%;
+}
+
+main .product-container .product-details-wrapper {
+  width: 100%;
+  max-width: 100%;
+  margin-top: 10px;
 }
 
 @media (min-width: 900px) {
@@ -26,5 +36,9 @@
 
   .product .info .button {
     width: auto;
+  }
+
+  main .product-container .product-details-wrapper {
+    margin-top: 50px;
   }
 }
