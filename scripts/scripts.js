@@ -10,7 +10,7 @@
  * governing permissions and limitations under the License.
  */
 
-import { HelixApp, getMetadata, fetchPlaceholders } from './helix-web-library.esm.js';
+import { HelixApp, fetchPlaceholders } from './helix-web-library.esm.js';
 
 /**
  * Return site placeholders
@@ -65,19 +65,6 @@ HelixApp.init({
   rumGeneration: 'project-1',
   lcpBlocks: ['hero'],
 })
-  .withPostDecorateBlockHook((main) => {
-    const template = getMetadata('template');
-    if (template === 'Product') {
-      import('../templates/product/product.js').then((module) => {
-        module.default(main);
-      });
-    } else if (template === 'Category') {
-      import('../templates/category/category.js').then((module) => {
-        module.default(main);
-      });
-    }
-    // document.querySelector('body').classList.add('appear');
-  })
   .withLoadDelayed(() => {
     // eslint-disable-next-line import/no-cycle
     window.setTimeout(() => import('./delayed.js'), 3000);

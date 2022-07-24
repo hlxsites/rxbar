@@ -52,5 +52,6 @@ class Gallery {
  * @param {Element} block The block element
  */
 export default async function decorate(block) {
-  const gallery = new Gallery(block);
+  // eslint-disable-next-line no-new
+  new Gallery(block);
 }

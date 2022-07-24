@@ -7,6 +7,12 @@
 
 .gallery .gallery-image img {
   object-fit: contain;
+  aspect-ratio: 1 / 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .gallery .gallery-image::before {
@@ -16,16 +22,6 @@
   width: 100%;
   content: "";
   box-sizing: border-box;
-}
-
-.gallery .gallery-image img {
-  aspect-ratio: 1 / 1;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
 }
 
 .gallery .slide-container {
