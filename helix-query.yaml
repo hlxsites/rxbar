@@ -17,10 +17,10 @@ indices:
         select: head > meta[property="og:image"]
         value: |
           match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      secondary-image:
+      secondaryImage:
         select: main .product-details > div > div:nth-child(2) img
         value: |
-          attribute(el, 'src')
+          attribute(el, 'src').replace('./', '/')
       description:
         select: head > meta[name="description"]
         value: |
