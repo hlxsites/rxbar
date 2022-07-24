@@ -7,7 +7,10 @@ indices:
       - '/shop/**'
     exclude:
       - '**/Document.*'
-      - '**/index'
+      - '/shop/protein-bar/'
+      - '/shop/nut-butter/'
+      - '/shop/oats/'
+      - '/shop/'
     target: /query-index
     properties:
       title:
