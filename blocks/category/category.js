@@ -10,7 +10,7 @@
  * governing permissions and limitations under the License.
  */
 
-import { getMetadata, loadCSS, createOptimizedPicture } from '../../scripts/helix-web-library.esm.js';
+import { getMetadata, createOptimizedPicture } from '../../scripts/helix-web-library.esm.js';
 import { getProductsByCategory, getAllProducts } from '../../scripts/scripts.js';
 
 function renderProductCard(product) {
@@ -39,7 +39,6 @@ function renderProductCard(product) {
 }
 
 export default async function decorate(main) {
-  await loadCSS(`${window.hlx.codeBasePath}/templates/category/category.css`);
   const category = getMetadata('category');
   const products = category ? await getProductsByCategory(category) : await getAllProducts();
 

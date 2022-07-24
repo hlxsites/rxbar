@@ -10,7 +10,7 @@
  * governing permissions and limitations under the License.
  */
 
-import { HelixApp, getMetadata, fetchPlaceholders } from './helix-web-library.esm.js';
+import { HelixApp, fetchPlaceholders } from './helix-web-library.esm.js';
 
 /**
  * Return site placeholders
@@ -35,6 +35,9 @@ export function toCamelCase(name) {
     .replace(/^(.)/, ($1) => $1.toLowerCase());
 }
 
+/**
+ * Fetches the query index
+ */
 export async function fetchQueryIndex() {
   const resp = await fetch('/query-index.json');
   const json = await resp.json();
@@ -45,6 +48,10 @@ export async function fetchQueryIndex() {
   window.pageIndex = { data: json.data, lookup };
 }
 
+/**
+ * Returns the products of a category
+ * @returns {import('../blocks/product/product.js').Product[]} products
+ */
 export async function getProductsByCategory(category) {
   if (!window.pageIndex) {
     await fetchQueryIndex();
@@ -52,6 +59,10 @@ export async function getProductsByCategory(category) {
   return window.pageIndex.data.filter((item) => item.category === category);
 }
 
+/**
+ * Returns all products
+ * @returns {import('../blocks/product/product.js').Product[]} products
+ */
 export async function getAllProducts() {
   if (!window.pageIndex) {
     await fetchQueryIndex();
@@ -65,15 +76,6 @@ HelixApp.init({
   rumGeneration: 'project-1',
   lcpBlocks: ['hero'],
 })
-  .withPostDecorateBlockHook((main) => {
-    const template = getMetadata('template');
-    if (template === 'Category') {
-      import('../templates/category/category.js').then((module) => {
-        module.default(main);
-      });
-    }
-    // document.querySelector('body').classList.add('appear');
-  })
   .withLoadDelayed(() => {
     // eslint-disable-next-line import/no-cycle
     window.setTimeout(() => import('./delayed.js'), 3000);

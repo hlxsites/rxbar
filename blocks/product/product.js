@@ -13,6 +13,18 @@
 import { loadCSS, getMetadata } from '../../scripts/helix-web-library.esm.js';
 import decorateGallery from '../gallery/gallery.js';
 
+/**
+ * Product
+ * @typedef {Object} Product
+ * @property {string} path Product path
+ * @property {string} title Product title
+ * @property {string} image Main product image
+ * @property {string} secondaryImage Secondary product image
+ * @property {string} description Product description
+ * @property {string} category Category
+ * @property {string} badges Nutrition badges
+ */
+
 function renderProductInfo(title, subtitle) {
   const info = document.createElement('div');
   info.classList.add('info');
