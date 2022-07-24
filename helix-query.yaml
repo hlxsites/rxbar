@@ -20,7 +20,7 @@ indices:
       secondaryImage:
         select: main .product-details > div > div:nth-child(2) img
         value: |
-          attribute(el, 'src').replace('./', '/')
+          attribute(el, 'src')
       description:
         select: head > meta[name="description"]
         value: |
