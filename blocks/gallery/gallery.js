@@ -31,6 +31,8 @@ class Gallery {
         container.classList.add('gallery-slide');
         container.addEventListener('click', this.onSlideSelected);
         slidesContainer.append(container);
+        img.width = 90;
+        img.height = 90;
         return img.src;
       });
 
