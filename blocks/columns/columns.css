@@ -8,6 +8,10 @@
     text-align: center;
 }
 
+.columns > div p {
+    font-size: var(--body-font-size-s);
+}
+
 .columns-container .button-container {
     text-align: center;
 }

@@ -15,7 +15,7 @@ export default function decorate(block) {
       classes.forEach((e, j) => {
         if (row.children[j]) row.children[j].classList.add(`carousel-${e}`);
         if (row.children[j]) row.children[j].classList.add('slide');
-        if (i < slideStyles.length) row.classList.add(`slide-${slideStyles[i].toLowerCase()}`);
+        if (i < slideStyles.length) row.classList.add(`${slideStyles[i].toLowerCase()}`);
       });
     }
     /* buttons */

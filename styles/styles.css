@@ -237,6 +237,26 @@ main .default-content-wrapper {
   text-align: center;
 }
 
+.blue {
+  background-color: #98d9e9;
+  color: #513629;
+}
+
+.red {
+  background-color: #a1412b;
+  color: #fff;
+}
+
+.yellow {
+  background-color: #fdb714;
+  color: #863b20;
+}
+
+.brown {
+  background-color: #653b2c;
+  color: #fdb714;
+}
+
 @media (min-width: 600px) {
   main .section {
     padding: 64px 32px;

@@ -133,26 +133,6 @@ main .carousel a.button.primary:any-link {
   border-color: transparent;
 }
 
-.slide-blue {
-  background-color: #98d9e9;
-  color: #513629;
-}
-
-.slide-red {
-  background-color: #a1412b;
-  color: #fff;
-}
-
-.slide-yellow {
-  background-color: #fdb714;
-  color: #863b20;
-}
-
-.slide-brown {
-  background-color: #653b2c;
-  color: #fdb714;
-}
-
 @media (min-width: 900px) {
   main .carousel .carousel-image-desktop {
     display: block;
