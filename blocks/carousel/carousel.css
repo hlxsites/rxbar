@@ -1,5 +1,6 @@
 main .section.carousel-container {
   padding: 0;
+  line-height: 0;
 }
 
 main .section.carousel-container .carousel-wrapper {
@@ -47,6 +48,7 @@ main .carousel .carousel-text-slide {
   margin: 0 auto;
   padding: 40px;
   padding-bottom: 80px;
+  line-height: 30px;
 }
 
 main .carousel .carousel-text-slide p{

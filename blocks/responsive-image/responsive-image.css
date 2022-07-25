@@ -1,5 +1,6 @@
-main .responsive-image-container {
+:scope main .responsive-image-container {
   padding: 0;
+  line-height: 0;
 }
 
 main .responsive-image-container .responsive-image-wrapper {
