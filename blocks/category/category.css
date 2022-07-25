@@ -48,6 +48,10 @@ main {
   position: relative;
 }
 
+.category-container .product-card .image .hidden {
+  display: none;
+}
+
 .category-container .product-card .image::before {
   padding-bottom: 100%;
   display: block;
@@ -57,7 +61,7 @@ main {
   box-sizing: border-box;
 }
 
-.category-container .product-card .image picture img {
+.category-container .product-card .image img {
   aspect-ratio: 1 / 1;
   position: absolute;
   top: 0;

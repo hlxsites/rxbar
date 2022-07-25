@@ -13,18 +13,28 @@
 import { getMetadata, createOptimizedPicture } from '../../scripts/helix-web-library.esm.js';
 import { getProductsByCategory, getAllProducts } from '../../scripts/scripts.js';
 
+function createImg(url, title) {
+  const image = createOptimizedPicture(url, title, true, [{ width: '275' }]);
+  const img = image.querySelector('img');
+  img.width = '275';
+  img.height = '275';
+  return img;
+}
+
 function renderProductCard(product) {
   const cardWrapper = document.createElement('div');
   cardWrapper.classList.add('product-card');
 
-  const image = createOptimizedPicture(product.image, product.title, true, [{ width: '275' }]);
-  const img = image.querySelector('img');
-  img.width = '275';
-  img.height = '275';
+  const primaryImage = createImg(product.image, product.title);
+  primaryImage.classList.add('primary');
+  const secondaryImage = createImg(product.secondaryImage, product.title);
+  secondaryImage.classList.add('secondary');
+  secondaryImage.classList.add('hidden');
 
   cardWrapper.innerHTML = /* html */`
     <a href="${product.path}" class="image">
-      ${image.outerHTML}
+      ${primaryImage.outerHTML}
+      ${secondaryImage.outerHTML}
     </a>
     <div class="details">
       <a class="title" href="${product.path}">${product.title}</a>
@@ -35,6 +45,16 @@ function renderProductCard(product) {
       <p class="login">Have an account?  <a href="/customer/account/login/">Log In</a></p>
     </div>
   `;
+
+  const image = cardWrapper.querySelector('.image');
+  image.addEventListener('mouseover', (e) => {
+    e.currentTarget.querySelector('.secondary').classList.toggle('hidden');
+    e.currentTarget.querySelector('.primary').classList.toggle('hidden');
+  });
+  image.addEventListener('mouseout', (e) => {
+    e.currentTarget.querySelector('.secondary').classList.toggle('hidden');
+    e.currentTarget.querySelector('.primary').classList.toggle('hidden');
+  });
   return cardWrapper;
 }
 
