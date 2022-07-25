@@ -15,6 +15,11 @@ main .responsive-image-container .responsive-image-wrapper img {
 
 .responsive-image .desktop {
   display: none;
+  line-height: 0;
+}
+
+.responsive-image .mobile {
+  line-height: 0;
 }
 
 @media (min-width: 900px) {
