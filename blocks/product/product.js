@@ -48,7 +48,7 @@ export default async function decorate(block) {
   const gallery = document.createElement('div');
   gallery.classList.add('gallery');
   gallery.innerHTML = block.innerHTML;
-  block.innerHTML = '';
+  block.textContent = '';
   block.appendChild(gallery);
   block.appendChild(renderProductInfo(title, subtitle));
   decorateGallery(gallery);

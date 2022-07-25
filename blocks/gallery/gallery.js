@@ -37,7 +37,7 @@ class Gallery {
         const img = thumb.querySelector('img');
         img.width = 90;
         img.height = 90;
-        container.innerHTML = '';
+        container.textContent = '';
         container.append(thumb);
         return imgSrc;
       });
