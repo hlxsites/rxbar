@@ -29,14 +29,17 @@ class Gallery {
       const slidesContainer = document.createElement('div');
       slidesContainer.classList.add('slide-container');
       const images = Array.from(imageContainers).map((container) => {
-        const img = container.querySelector('img').src;
+        const imgSrc = container.querySelector('img').src;
         container.classList.add('gallery-slide');
         container.addEventListener('click', this.onSlideSelected);
         slidesContainer.append(container);
-        const thumb = createOptimizedPicture(img, title, false, [{ width: '90' }]);
+        const thumb = createOptimizedPicture(imgSrc, title, false, [{ width: '90' }]);
+        const img = thumb.querySelector('img');
+        img.width = 90;
+        img.height = 90;
         container.innerHTML = '';
         container.append(thumb);
-        return img;
+        return imgSrc;
       });
 
       block.append(slidesContainer);
