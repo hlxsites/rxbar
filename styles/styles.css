@@ -100,6 +100,10 @@ p, dl, ol, ul, pre, blockquote {
   margin-bottom: 1em;
 }
 
+u {
+  text-decoration-color: var(--link-color);
+}
+
 a:any-link {
   color: var(--link-color);
   text-decoration: none;
@@ -235,6 +239,10 @@ main .purple h2 {
 
 main .default-content-wrapper {
   text-align: center;
+}
+
+body.left main .default-content-wrapper {
+  text-align: left;
 }
 
 .blue {
