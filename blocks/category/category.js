@@ -13,21 +13,21 @@
 import { getMetadata, createOptimizedPicture } from '../../scripts/helix-web-library.esm.js';
 import { getProductsByCategory, getAllProducts } from '../../scripts/scripts.js';
 
-function createImg(url, title) {
-  const image = createOptimizedPicture(url, title, true, [{ width: '275' }]);
+function createImg(url, title, eager) {
+  const image = createOptimizedPicture(url, title, eager, [{ width: '275' }]);
   const img = image.querySelector('img');
   img.width = '275';
   img.height = '275';
-  return img;
+  return image;
 }
 
 function renderProductCard(product) {
   const cardWrapper = document.createElement('div');
   cardWrapper.classList.add('product-card');
 
-  const primaryImage = createImg(product.image, product.title);
+  const primaryImage = createImg(product.image, product.title, true);
   primaryImage.classList.add('primary');
-  const secondaryImage = createImg(product.secondaryImage, product.title);
+  const secondaryImage = createImg(product.secondaryImage, product.title, false);
   secondaryImage.classList.add('secondary');
   secondaryImage.classList.add('hidden');
 
