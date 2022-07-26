@@ -31,7 +31,7 @@ main {
   margin-right: auto;
 }
 
-.category-container .product-card {
+.product-card {
   position: relative;
   display: flex;
   flex: 0 0 50%;
@@ -44,15 +44,15 @@ main {
   box-sizing: border-box;
 }
 
-.category-container .product-card .image {
+.product-card .image {
   position: relative;
 }
 
-.category-container .product-card .image .hidden {
+.product-card .image .hidden {
   display: none;
 }
 
-.category-container .product-card .image::before {
+.product-card .image::before {
   padding-bottom: 100%;
   display: block;
   height: 0;
@@ -61,7 +61,7 @@ main {
   box-sizing: border-box;
 }
 
-.category-container .product-card .image img {
+.product-card .image img {
   aspect-ratio: 1 / 1;
   position: absolute;
   top: 0;
@@ -71,12 +71,12 @@ main {
   object-fit: contain;
 }
 
-.category-container .details {
+.product-card .details {
   padding-top: 20px;
   min-height: 150px;
 }
 
-.category-container .details .title {
+.product-card .details .title {
   font-size: var(--heading-font-size-xs);
   color: #000;
   font-weight: bold;
@@ -84,15 +84,15 @@ main {
   line-height: 24px;
 }
 
-.category-container .details .subtitle {
+.product-card .details .subtitle {
   font-size: var(--heading-font-size-xs);
 }
 
-.category-container .actions .button {
+.product-card .actions .button {
   width: 100%;
 }
 
-.category-container .actions .login {
+.product-card .actions .login {
   margin-top: 0;
   font-size: var(--body-font-size-xs);
 }
@@ -103,13 +103,13 @@ main {
     min-height: 200px;
   }
 
-  .category-container .product-card {
+  .product-card {
     flex: 0 0 33%;
     padding-left: 30px;
     padding-right: 30px;
   }
 
-  .category-container .actions .button {
+  .product-card .actions .button {
     width: 152px;
   }
 
@@ -119,12 +119,12 @@ main {
     min-height: 54px;
   }
 
-  .category-container .details .title {
+  .product-card .details .title {
     font-size: var(--heading-font-size-m);
     line-height: 35px;
   }
 
-  .category-container .details .subtitle {
+  .product-card .details .subtitle {
     font-size: var(--body-font-size-s);
     line-height: 35px;
   }
@@ -135,7 +135,7 @@ main {
 }
 
 @media (min-width: 1080px) {
-  .category-container .product-card {
+  .product-card {
     flex: 0 0 25%;
   }
 }

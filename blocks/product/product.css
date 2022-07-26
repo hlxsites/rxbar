@@ -1,5 +1,5 @@
 :scope main > .section:first-of-type {
-    padding: 0;
+  padding: 0;
 }
 
 .product {
@@ -22,6 +22,51 @@ main .product-container .product-details-wrapper {
   margin-top: 10px;
 }
 
+.recommended {
+  padding: 20px;
+}
+
+.recommended .products .product-card a {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.recommended h2 {
+  font-weight: 400;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #000;
+}
+
+.recommended .products .product-card .details .title {
+  font-weight: 400;
+  font-size: var(--body-font-size-l);
+  line-height: 30px;
+  text-align: center;
+}
+
+.recommended .products .product-card .details .subtitle {
+  text-align: center;
+}
+
+.recommended .products .product-card .image {
+  max-width: 200px;
+}
+
+@media (min-width: 700px) {
+  .recommended .products {
+    display: flex;
+    flex-flow: row wrap;
+  }
+  
+  .recommended .products .product-card .details .title {
+    text-align: left;
+  }
+
+  .recommended .products .product-card .details .subtitle {
+    text-align: left;
+  }
+}
+
 @media (min-width: 900px) {
   .product {
     flex-direction: row;
@@ -40,5 +85,9 @@ main .product-container .product-details-wrapper {
 
   main .product-container .product-details-wrapper {
     margin-top: 50px;
+  }
+
+  .recommended .products {
+    display: flex;
   }
 }

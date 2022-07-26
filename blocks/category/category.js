@@ -21,7 +21,7 @@ function createImg(url, title, eager) {
   return image;
 }
 
-function renderProductCard(product) {
+export function renderProductCard(product, showActions = true) {
   const cardWrapper = document.createElement('div');
   cardWrapper.classList.add('product-card');
 
@@ -40,10 +40,12 @@ function renderProductCard(product) {
       <a class="title" href="${product.path}">${product.title}</a>
       <div class="subtitle">12 A.M. Protein Bars</div>
     </div>
-    <div class="actions">
-      <a class="button" href="/customer/account/create/">Register</a>
-      <p class="login">Have an account?  <a href="/customer/account/login/">Log In</a></p>
-    </div>
+    ${showActions ? /* html */`
+      <div class="actions">
+        <a class="button" href="/customer/account/create/">Register</a>
+        <p class="login">Have an account?  <a href="/customer/account/login/">Log In</a></p>
+      </div>
+      ` : ''}
   `;
 
   const image = cardWrapper.querySelector('.image');

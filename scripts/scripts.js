@@ -35,6 +35,12 @@ export function toCamelCase(name) {
     .replace(/^(.)/, ($1) => $1.toLowerCase());
 }
 
+/**
+ * Creates a breadcrumb element
+ * @param {Object} parent The parent link and title
+ * @param {string} title The current page title
+ * @returns {Element}
+ */
 export function createBreadcrumbs(parent, title) {
   const container = document.createElement('div');
   container.classList.add('bread-crumbs');
@@ -77,6 +83,18 @@ export async function getProductsByCategory(category) {
     await fetchQueryIndex();
   }
   return window.pageIndex.data.filter((item) => item.category === category);
+}
+
+/**
+ * Returns the product by path
+ * @returns {import('../blocks/product/product.js').Product[]} products
+ */
+export async function getProductByPath(path) {
+  if (!window.pageIndex) {
+    await fetchQueryIndex();
+  }
+  const product = window.pageIndex.data.filter((item) => item.path === path);
+  return product.length > 0 ? product[0] : null;
 }
 
 /**

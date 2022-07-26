@@ -11,7 +11,8 @@
  */
 
 import { loadCSS, getMetadata, toClassName } from '../../scripts/helix-web-library.esm.js';
-import { createBreadcrumbs } from '../../scripts/scripts.js';
+import { createBreadcrumbs, getProductByPath } from '../../scripts/scripts.js';
+import { renderProductCard } from '../category/category.js';
 import decorateGallery from '../gallery/gallery.js';
 
 /**
@@ -43,6 +44,7 @@ function renderProductInfo(title, subtitle) {
  */
 export default async function decorate(block) {
   await loadCSS(`${window.hlx.codeBasePath}/blocks/gallery/gallery.css`);
+  await loadCSS(`${window.hlx.codeBasePath}/blocks/category/category.css`);
   const title = getMetadata('og:title');
   const subtitle = getMetadata('subtitle');
   const category = getMetadata('category');
@@ -56,4 +58,32 @@ export default async function decorate(block) {
   decorateGallery(gallery);
 
   document.querySelector('main .product-wrapper').prepend(createBreadcrumbs({ url: `/shop/${toClassName(category)}/`, title: category }, title));
+
+  const recommended = document.createElement('div');
+  recommended.classList.add('recommended');
+
+  const recommendedTitle = document.createElement('h2');
+  recommendedTitle.textContent = 'This might go well with...';
+  recommended.append(recommendedTitle);
+
+  const recommendedProducts = document.createElement('div');
+  recommendedProducts.classList.add('products');
+  recommended.append(recommendedProducts);
+
+  const defaultContentWrapper = block.parentElement.parentElement.querySelector('.default-content-wrapper');
+  const similarButtons = defaultContentWrapper.querySelectorAll('.default-content-wrapper .button-container a');
+  const products = await Promise.all(Array.from(similarButtons).map(async (similar) => {
+    similar.remove();
+    const { pathname } = new URL(similar.href);
+    return getProductByPath(pathname);
+  }));
+  defaultContentWrapper.remove();
+
+  products.forEach((product) => {
+    recommendedProducts.appendChild(renderProductCard(product, false));
+  });
+
+  if (recommended.children.length > 0) {
+    block.parentElement.parentElement.append(recommended);
+  }
 }
