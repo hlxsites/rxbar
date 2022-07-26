@@ -71,7 +71,7 @@ export default async function decorate(block) {
   recommended.append(recommendedProducts);
 
   const defaultContentWrapper = block.parentElement.parentElement.querySelector('.default-content-wrapper');
-  const similarButtons = defaultContentWrapper.querySelectorAll('.default-content-wrapper .button-container a');
+  const similarButtons = defaultContentWrapper.querySelectorAll('p > a');
   const products = await Promise.all(Array.from(similarButtons).map(async (similar) => {
     similar.remove();
     const { pathname } = new URL(similar.href);
