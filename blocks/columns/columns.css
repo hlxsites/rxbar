@@ -8,6 +8,10 @@
     text-align: center;
 }
 
+.columns > div > div {
+    width: 100%;
+}
+
 .flex .columns > div {
     width: 100%;
     padding-bottom: 40px;
@@ -28,10 +32,6 @@ body.left .columns > div {
 
 body.left .columns-container .button-container {
     text-align: left;
-}
-
-.columns > div p {
-    font-size: var(--body-font-size-s);
 }
 
 .flex .columns {
@@ -58,7 +58,7 @@ body.left .columns-container .button-container {
         width: 30%;
         flex-direction: column;
     }
-    
+
     .flex .columns > div > div {
         margin-left: 15px;
     }
