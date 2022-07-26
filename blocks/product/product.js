@@ -10,7 +10,8 @@
  * governing permissions and limitations under the License.
  */
 
-import { loadCSS, getMetadata } from '../../scripts/helix-web-library.esm.js';
+import { loadCSS, getMetadata, toClassName } from '../../scripts/helix-web-library.esm.js';
+import { createBreadcrumbs } from '../../scripts/scripts.js';
 import decorateGallery from '../gallery/gallery.js';
 
 /**
@@ -44,6 +45,7 @@ export default async function decorate(block) {
   await loadCSS(`${window.hlx.codeBasePath}/blocks/gallery/gallery.css`);
   const title = getMetadata('og:title');
   const subtitle = getMetadata('subtitle');
+  const category = getMetadata('category');
 
   const gallery = document.createElement('div');
   gallery.classList.add('gallery');
@@ -52,4 +54,6 @@ export default async function decorate(block) {
   block.appendChild(gallery);
   block.appendChild(renderProductInfo(title, subtitle));
   decorateGallery(gallery);
+
+  document.querySelector('main .product-wrapper').prepend(createBreadcrumbs({ url: `/shop/${toClassName(category)}/`, title: category }, title));
 }

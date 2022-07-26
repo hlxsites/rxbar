@@ -11,7 +11,7 @@
  */
 
 import { getMetadata, createOptimizedPicture } from '../../scripts/helix-web-library.esm.js';
-import { getProductsByCategory, getAllProducts } from '../../scripts/scripts.js';
+import { getProductsByCategory, getAllProducts, createBreadcrumbs } from '../../scripts/scripts.js';
 
 function createImg(url, title, eager) {
   const image = createOptimizedPicture(url, title, eager, [{ width: '275' }]);
@@ -70,4 +70,6 @@ export default async function decorate(main) {
   });
 
   main.appendChild(container);
+
+  document.querySelector('main .category-container').prepend(createBreadcrumbs({ url: '/shop/', title: 'All Products' }, category));
 }

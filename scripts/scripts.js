@@ -35,6 +35,26 @@ export function toCamelCase(name) {
     .replace(/^(.)/, ($1) => $1.toLowerCase());
 }
 
+export function createBreadcrumbs(parent, title) {
+  const container = document.createElement('div');
+  container.classList.add('bread-crumbs');
+  container.innerHTML = /* html */`
+    <ul>
+      <li>
+        <a href="/" title="Go to Home Page">Home</a>
+      </li>
+      <li>
+        <a href="${parent.url}">${parent.title}</a>
+      </li>
+      <li>
+        <strong>${title}</strong>
+      </li>
+    </ul>
+  `;
+
+  return container;
+}
+
 /**
  * Fetches the query index
  */
