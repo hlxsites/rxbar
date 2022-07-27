@@ -7,7 +7,7 @@ indices:
       - '/shop/**'
     exclude:
       - '**/Document.*'
-      - '/shop/protein-bar/'
+      - '/shop/protein-bars/'
       - '/shop/nut-butter/'
       - '/shop/oats/'
       - '/shop/'
@@ -15,6 +15,10 @@ indices:
     properties:
       title:
         select: head > meta[property="og:title"]
+        value: |
+          attribute(el, 'content')
+      subtitle:
+        select: head > meta[name="subtitle"]
         value: |
           attribute(el, 'content')
       image:
