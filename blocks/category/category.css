@@ -49,7 +49,8 @@ main {
 }
 
 .product-card .image .hidden {
-  display: none;
+  opacity: 0;
+  transition: .5s ease;
 }
 
 .product-card .image::before {
