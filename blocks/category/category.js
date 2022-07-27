@@ -31,7 +31,7 @@ export function renderProductCard(product, showActions = true) {
 
   const primaryImage = createImg(product.image, product.title, true);
   primaryImage.classList.add('primary');
-  const secondaryImage = createImg(product.secondaryImage, product.title, true);
+  const secondaryImage = createImg(product.secondaryImage, product.title, false);
   secondaryImage.classList.add('secondary');
   secondaryImage.classList.add('hidden');
 
