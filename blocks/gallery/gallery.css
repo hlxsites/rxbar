@@ -41,7 +41,7 @@
 }
 
 .gallery .selected-slide .gallery-image::before {
-  padding-bottom: 90%;
+  padding-bottom: 100%;
   display: block;
   height: 0;
   width: 100%;
@@ -54,15 +54,17 @@
   gap: 10px;
   padding: 15px;
   justify-content: center;
+  min-height: 65px;
+  align-items: flex-start;
 }
 
 .gallery .slide-container .gallery-slide {
   width: 90px;
   background-color: #fff;
   border: 1px solid #d9d9d9;
-  box-sizing: content-box;
   border-radius: 5px;
   overflow: hidden;
+  box-sizing: border-box;
 }
 
 .gallery-container.marketing .gallery-wrapper .gallery .slide-container .gallery-slide {
@@ -84,7 +86,7 @@
 }
 
 .gallery .slide-container .gallery-slide picture::before {
-  padding-bottom: 90%;
+  padding-bottom: 100%;
   display: block;
   height: 0;
   width: 100%;

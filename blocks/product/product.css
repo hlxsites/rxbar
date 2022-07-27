@@ -12,6 +12,10 @@
   font-size: var(--body-font-size-s);
 }
 
+.product .info h1 {
+  margin-top: 10px;
+}
+
 .product .info .login {
   font-size: var(--body-font-size-xs);
 }
