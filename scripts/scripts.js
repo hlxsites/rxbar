@@ -114,7 +114,7 @@ HelixApp.init({
   rumEnabled: true,
   autoAppear: true,
   rumGeneration: 'project-1',
-  lcpBlocks: ['carousel', 'responsive-image'],
+  lcpBlocks: ['carousel', 'category'],
 })
   .withLoadDelayed(() => {
     // eslint-disable-next-line import/no-cycle
