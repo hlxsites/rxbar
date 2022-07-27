@@ -27,7 +27,7 @@ export function renderProductCard(product, showActions = true) {
 
   const primaryImage = createImg(product.image, product.title, true);
   primaryImage.classList.add('primary');
-  const secondaryImage = createImg(product.secondaryImage, product.title, false);
+  const secondaryImage = createImg(product.secondaryImage, product.title, true);
   secondaryImage.classList.add('secondary');
   secondaryImage.classList.add('hidden');
 
@@ -38,7 +38,7 @@ export function renderProductCard(product, showActions = true) {
     </a>
     <div class="details">
       <a class="title" href="${product.path}">${product.title}</a>
-      <div class="subtitle">12 A.M. Protein Bars</div>
+      <div class="subtitle">${product.subtitle}</div>
     </div>
     ${showActions ? /* html */`
       <div class="actions">
