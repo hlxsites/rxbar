@@ -132,7 +132,7 @@ pre {
 
 a.button:any-link, button {
   font-family: var(--font-family-body);
-  font-size: var(--body-font-size-xxs);
+  font-size: var(--body-font-size-xs);
   display: inline-block;
   box-sizing: border-box;
   text-decoration: none;

@@ -90,6 +90,8 @@ main {
 
 .product-card .actions .button {
   width: 100%;
+  font-size: var(--body-font-size-xs);
+  padding: 14px 40px;
 }
 
 .product-card .actions .login {
@@ -110,7 +112,7 @@ main {
   }
 
   .product-card .actions .button {
-    width: 152px;
+    width: auto;
   }
 
   .default-content-wrapper p:nth-child(1) {

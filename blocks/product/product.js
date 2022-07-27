@@ -34,6 +34,7 @@ function renderProductInfo(title, subtitle) {
       <h1>${title}</h2>
       <div class="subtitle">${subtitle}</div>
       <a class="button" href="/signup">Register</a>
+      <p class="login">Have an account?  <a href="/customer/account/login/">Log In</a></p>
   `;
   return info;
 }
