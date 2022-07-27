@@ -100,6 +100,12 @@ main {
   font-size: var(--body-font-size-xs);
 }
 
+@media (max-width: 370px) {
+  .product-card {
+    flex: 0 0 100%;
+  }
+}
+
 @media (min-width: 780px) {
   .category-container .details {
     padding-top: 20px;
