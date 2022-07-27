@@ -25,12 +25,12 @@ header nav a:any-link {
 
 header nav[aria-expanded='true'] {
   grid-template: 'hamburger brand' 'sections sections' 'tools tools';
-  grid-template-columns:  10px 1fr;
+  grid-template-columns:  69px 1fr;
   overflow-y: scroll;
   min-height: 100vh;
   align-items: flex-start;
   padding: 0 1.3rem;
-  padding-top: 20px;
+  padding-top: 14px;
   grid-template-rows: 70px 1fr 150px;
 }
 
@@ -42,6 +42,11 @@ header .nav-brand {
   line-height: 1em;
   text-align: center;
 }
+
+header nav[aria-expanded='true'] .nav-brand {
+  justify-self: flex-start;
+}
+
 
 header nav .nav-brand p {
   margin: 0;
