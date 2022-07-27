@@ -22,6 +22,7 @@
   margin: 0;
   display: flex;
   justify-content: space-between;
+  word-break: break-all;
 }
 
 .footer ul li:first-of-type:not(.terms-copywrite ul li) {
@@ -34,11 +35,12 @@
 .footer > div:nth-child(1) {
   display: flex;
   flex-flow: row wrap;
+  column-gap: 15px;
 }
 
-.footer > div:nth-child(1) > div{
-  width: 200px;
-  min-height: 200px;
+.footer > div:nth-child(1) > div {    
+  width: 170px;
+  min-height: 155px;
 }
 
 .footer > div:nth-child(1) > div:last-of-type p{
@@ -95,6 +97,10 @@
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+  }
+
+  .footer > div:nth-child(1) > div {
+      width: 215px;
   }
 
   .footer .footer-section-options {
