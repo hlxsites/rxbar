@@ -9,11 +9,17 @@
 
 .product .info {
   padding: 15px;
+  font-size: var(--body-font-size-s);
+}
+
+.product .info .login {
+  font-size: var(--body-font-size-xs);
 }
 
 .product .info .button {
   margin-top: 20px;
   width: 100%;
+
 }
 
 main .product-container .product-details-wrapper {
@@ -57,7 +63,7 @@ main .product-container .product-details-wrapper {
     display: flex;
     flex-flow: row wrap;
   }
-  
+
   .recommended .products .product-card .details .title {
     text-align: left;
   }

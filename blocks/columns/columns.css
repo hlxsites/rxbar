@@ -26,6 +26,11 @@
     text-align: center;
 }
 
+.columns-container.dark .button-container a {
+    border: 4px solid #fff;
+    background-color: #fff;
+}
+
 body.left .columns-container h2 {
     text-align: left;
     margin-top: 0.7rem;
