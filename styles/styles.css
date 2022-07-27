@@ -25,6 +25,7 @@
   --fixed-font-family: 'Roboto Mono', menlo, consolas, 'Liberation Mono', monospace;
 
   /* body sizes */
+  --body-font-size-l: 30px;
   --body-font-size-m: 22px;
   --body-font-size-s: 18px;
   --body-font-size-xs: 14px;
@@ -98,6 +99,10 @@ h6 { font-size: var(--heading-font-size-xs) }
 p, dl, ol, ul, pre, blockquote {
   margin-top: 1em;
   margin-bottom: 1em;
+}
+
+u {
+  text-decoration-color: var(--link-color);
 }
 
 a:any-link {
@@ -235,6 +240,55 @@ main .purple h2 {
 
 main .default-content-wrapper {
   text-align: center;
+}
+
+body.left main .default-content-wrapper {
+  text-align: left;
+}
+
+main .section .bread-crumbs {
+  text-align: left;
+  margin: 0;
+}
+
+main .section .bread-crumbs ul {
+  list-style: none;
+  padding: 0 15px;
+}
+
+main .section .bread-crumbs ul li {
+  display: inline;
+  font-size: var(--body-font-size-s);
+  font-weight: 600;
+}
+
+main .section .bread-crumbs li+li::before {
+    content: '>';
+    padding: 0 2px;
+}
+
+main .section .bread-crumbs ul li a {
+  color:#000;
+}
+
+.blue {
+  background-color: #98d9e9;
+  color: #513629;
+}
+
+.red {
+  background-color: #a1412b;
+  color: #fff;
+}
+
+.yellow {
+  background-color: #fdb714;
+  color: #863b20;
+}
+
+.brown {
+  background-color: #653b2c;
+  color: #fdb714;
 }
 
 @media (min-width: 600px) {

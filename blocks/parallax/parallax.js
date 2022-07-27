@@ -42,7 +42,7 @@ export default async function decorate(block) {
     multiplier = 0.2;
   }
 
-  block.innerHTML = '';
+  block.textContent = '';
   block.append(parallaxBlock);
 
   const readMoreButton = document.createElement('div');

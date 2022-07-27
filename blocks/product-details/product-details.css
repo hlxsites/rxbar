@@ -1,5 +1,9 @@
 .product-details {
-  padding: 60px 15px;
+  padding: 50px 15px;
+}
+
+.product-details h2 {
+  font-size: var(--heading-font-size-xxl);
 }
 
 .product-details > div > div{
@@ -41,7 +45,7 @@
 
 @media (min-width: 900px) {
   .product-details {
-    padding-top: 100px;
+    padding-top: 50px;
     padding-bottom: 30px;
   }
 

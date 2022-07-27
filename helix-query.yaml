@@ -7,6 +7,10 @@ indices:
       - '/shop/**'
     exclude:
       - '**/Document.*'
+      - '/shop/protein-bar/'
+      - '/shop/nut-butter/'
+      - '/shop/oats/'
+      - '/shop/'
     target: /query-index
     properties:
       title:
@@ -17,7 +21,7 @@ indices:
         select: head > meta[property="og:image"]
         value: |
           match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      secondary-image:
+      secondaryImage:
         select: main .product-details > div > div:nth-child(2) img
         value: |
           attribute(el, 'src')

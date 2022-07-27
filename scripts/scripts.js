@@ -10,7 +10,7 @@
  * governing permissions and limitations under the License.
  */
 
-import { HelixApp, getMetadata, fetchPlaceholders } from './helix-web-library.esm.js';
+import { HelixApp, fetchPlaceholders } from './helix-web-library.esm.js';
 
 /**
  * Return site placeholders
@@ -35,6 +35,35 @@ export function toCamelCase(name) {
     .replace(/^(.)/, ($1) => $1.toLowerCase());
 }
 
+/**
+ * Creates a breadcrumb element
+ * @param {Object} parent The parent link and title
+ * @param {string} title The current page title
+ * @returns {Element}
+ */
+export function createBreadcrumbs(parent, title) {
+  const container = document.createElement('div');
+  container.classList.add('bread-crumbs');
+  container.innerHTML = /* html */`
+    <ul>
+      <li>
+        <a href="/" title="Go to Home Page">Home</a>
+      </li>
+      <li>
+        <a href="${parent.url}">${parent.title}</a>
+      </li>
+      <li>
+        <strong>${title}</strong>
+      </li>
+    </ul>
+  `;
+
+  return container;
+}
+
+/**
+ * Fetches the query index
+ */
 export async function fetchQueryIndex() {
   const resp = await fetch('/query-index.json');
   const json = await resp.json();
@@ -45,6 +74,10 @@ export async function fetchQueryIndex() {
   window.pageIndex = { data: json.data, lookup };
 }
 
+/**
+ * Returns the products of a category
+ * @returns {import('../blocks/product/product.js').Product[]} products
+ */
 export async function getProductsByCategory(category) {
   if (!window.pageIndex) {
     await fetchQueryIndex();
@@ -52,6 +85,22 @@ export async function getProductsByCategory(category) {
   return window.pageIndex.data.filter((item) => item.category === category);
 }
 
+/**
+ * Returns the product by path
+ * @returns {import('../blocks/product/product.js').Product[]} products
+ */
+export async function getProductByPath(path) {
+  if (!window.pageIndex) {
+    await fetchQueryIndex();
+  }
+  const product = window.pageIndex.data.filter((item) => item.path === path);
+  return product.length > 0 ? product[0] : null;
+}
+
+/**
+ * Returns all products
+ * @returns {import('../blocks/product/product.js').Product[]} products
+ */
 export async function getAllProducts() {
   if (!window.pageIndex) {
     await fetchQueryIndex();
@@ -63,21 +112,8 @@ HelixApp.init({
   rumEnabled: true,
   autoAppear: true,
   rumGeneration: 'project-1',
-  lcpBlocks: ['hero'],
+  lcpBlocks: ['carousel'],
 })
-  .withPostDecorateBlockHook((main) => {
-    const template = getMetadata('template');
-    if (template === 'Product') {
-      import('../templates/product/product.js').then((module) => {
-        module.default(main);
-      });
-    } else if (template === 'Category') {
-      import('../templates/category/category.js').then((module) => {
-        module.default(main);
-      });
-    }
-    // document.querySelector('body').classList.add('appear');
-  })
   .withLoadDelayed(() => {
     // eslint-disable-next-line import/no-cycle
     window.setTimeout(() => import('./delayed.js'), 3000);

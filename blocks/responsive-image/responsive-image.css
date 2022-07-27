@@ -1,4 +1,4 @@
-main .responsive-image-container {
+:scope main .responsive-image-container {
   padding: 0;
 }
 
@@ -10,10 +10,16 @@ main .responsive-image-container .responsive-image-wrapper {
 main .responsive-image-container .responsive-image-wrapper img {
   width: 100%;
   object-fit: contain;
+  line-height: 0;
 }
 
 .responsive-image .desktop {
   display: none;
+  line-height: 0;
+}
+
+.responsive-image .mobile {
+  line-height: 0;
 }
 
 @media (min-width: 900px) {
