@@ -73,5 +73,9 @@ export default async function decorate(main) {
 
   main.appendChild(container);
 
-  document.querySelector('main .category-container').prepend(createBreadcrumbs({ url: '/shop/', title: 'All Products' }, category));
+  let parentCategory = { url: '/shop/', title: 'All Products' };
+  if (!category) {
+    parentCategory = undefined;
+  }
+  document.querySelector('main .category-container').prepend(createBreadcrumbs(parentCategory, category ?? 'All Products'));
 }
