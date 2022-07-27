@@ -12,6 +12,10 @@
     width: 100%;
 }
 
+.columns.top > div {
+    align-items: flex-start;
+}
+
 .flex .columns > div {
     width: 100%;
     padding-bottom: 40px;
@@ -24,6 +28,7 @@
 
 body.left .columns-container h2 {
     text-align: left;
+    margin-top: 0.7rem;
 }
 
 body.left .columns > div {

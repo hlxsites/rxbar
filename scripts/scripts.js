@@ -49,9 +49,11 @@ export function createBreadcrumbs(parent, title) {
       <li>
         <a href="/" title="Go to Home Page">Home</a>
       </li>
-      <li>
-        <a href="${parent.url}">${parent.title}</a>
-      </li>
+      ${parent ? /* html */`
+        <li>
+          <a href="${parent.url}">${parent.title}</a>
+        </li>
+      ` : ''}
       <li>
         <strong>${title}</strong>
       </li>
