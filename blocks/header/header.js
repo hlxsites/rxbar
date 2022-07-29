@@ -62,5 +62,35 @@ export default async function decorate(block) {
     nav.setAttribute('aria-expanded', 'false');
     decorateIcons(nav);
     block.append(nav);
+
+    /* init cart */
+    const cart = block.querySelector('.icon-cart');
+    cart.classList.add('cart');
+
+    // StorefrontSDK
+    window.addEventListener('StorefrontSDKReady', () => {
+      // Toggle Cart Panel
+      cart.onclick = () => window.StorefrontSDK.togglePanel('cart');
+
+      // Cart Count Indicator
+      window.StorefrontSDK.cartItemsQuantity.watch((qty) => {
+        cart.setAttribute('data-cart-qty', qty || '');
+      });
+    });
+
+    const sfsdkScript = document.createElement('script');
+    sfsdkScript.type = 'module';
+    sfsdkScript.async = true;
+    sfsdkScript.text = `
+      import { render, api } from "https://storefront-widgets.s3.amazonaws.com/develop/storefront-sdk-widget.js";
+      // Initialize
+      const options = {
+        endpoint: "https://graph.adobe.io/api/63e62e43-8eb8-45a2-b0f6-f7c3845093db/graphql?api_key=2c6d06bb3aef463db8485c88a90f563f",
+        mesh: "storefrontstaticenvmesh"
+      };
+      render(options, document.body);
+    `;
+
+    document.body.append(sfsdkScript);
   }
 }
