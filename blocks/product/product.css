@@ -74,6 +74,7 @@ main .product-container .product-details-wrapper {
 
   .recommended .products .product-card .details .subtitle {
     text-align: left;
+    line-height: 23px;
   }
 }
 
