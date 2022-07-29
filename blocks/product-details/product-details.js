@@ -10,8 +10,8 @@
  * governing permissions and limitations under the License.
  */
 
-import { getMetadata } from '../../scripts/helix-web-library.esm.js';
-import { getPlaceholders, toCamelCase } from '../../scripts/scripts.js';
+import { getMetadata, toCamelCase } from '../../scripts/helix-web-library.esm.js';
+import { getPlaceholders } from '../../scripts/scripts.js';
 
 function createNutritionBadge(title, image) {
   const div = document.createElement('div');
@@ -21,6 +21,13 @@ function createNutritionBadge(title, image) {
       <p>${title}</p>
     </div>
   `;
+  return div;
+}
+
+function createLabel(label) {
+  const div = document.createElement('div');
+  div.classList.add('nutrition-description');
+  div.innerHTML = label;
   return div;
 }
 
@@ -48,12 +55,17 @@ export default async function decorate(block) {
 
   const nutritionBadgesContainer = document.createElement('div');
   nutritionBadgesContainer.classList.add('nutrition-badges');
-  badgesArray.forEach((badge) => {
-    const badgeId = toCamelCase(badge);
-    nutritionBadgesContainer.append(createNutritionBadge(placeholders[badgeId], `/icons/${badgeId}.png`));
-  });
-
   infoContainer.append(nutritionBadgesContainer);
+  badgesArray.forEach((badge) => {
+    const badgeId = toCamelCase(badge.trim()).toLowerCase();
+    const label = placeholders[badgeId];
+    nutritionBadgesContainer.append(createNutritionBadge(placeholders[badgeId], `/icons/${badgeId}.png`));
+    if (label.includes('**')) {
+      infoContainer.append(createLabel('<a href="https://main--rxbar--hlxsites.hlx.live/whats-inside">**Visit RXBAR.com/whats-inside for details</a>'));
+    } else if (label.includes('*')) {
+      infoContainer.append(createLabel('*Not a low calorie food. See nutrition information for calories and sugar content.'));
+    }
+  });
 
   const disclaimer = document.createElement('a');
   disclaimer.href = 'https://www.rxbar.com/whats-inside';

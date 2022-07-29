@@ -12,6 +12,10 @@
   font-size: var(--body-font-size-s);
 }
 
+.product .info h1 {
+  margin-top: 10px;
+}
+
 .product .info .login {
   font-size: var(--body-font-size-xs);
 }
@@ -70,6 +74,7 @@ main .product-container .product-details-wrapper {
 
   .recommended .products .product-card .details .subtitle {
     text-align: left;
+    line-height: 23px;
   }
 }
 

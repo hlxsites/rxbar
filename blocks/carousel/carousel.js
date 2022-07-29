@@ -9,6 +9,13 @@ export default function decorate(block) {
       classes.forEach((e, j) => {
         if (row.children[j]) row.children[j].classList.add(`carousel-${e}`);
         if (row.children[j]) row.children[j].classList.add('slide');
+
+        if (navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0) {
+          // Set the first mobile image to load eager as well.
+          if (i === 0 && e === 'image-mobile') {
+            row.children[j].querySelector('img').loading = 'eager';
+          }
+        }
       });
     } else {
       const classes = ['text-slide'];
