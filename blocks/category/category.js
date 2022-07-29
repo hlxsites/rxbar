@@ -12,7 +12,11 @@
 
 import { getMetadata, createOptimizedPicture } from '../../scripts/helix-web-library.esm.js';
 import { getProductsByCategory, getAllProducts, createBreadcrumbs } from '../../scripts/scripts.js';
-
+function hasTouch() {
+  return 'ontouchstart' in document.documentElement
+    || navigator.maxTouchPoints > 0
+    || navigator.msMaxTouchPoints > 0;
+}
 function createImg(url, title, eager) {
   const image = createOptimizedPicture(url, title, eager, [{ width: '275' }]);
   const img = image.querySelector('img');
