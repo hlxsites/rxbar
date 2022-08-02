@@ -44,19 +44,6 @@
   --nav-height: 80px;
 }
 
-@font-face {
-  font-family: Circular;
-  src: url("./fonts/lineto-circular-pro-book.woff") format('woff');
-  font-display: swap;
-}
-
-@font-face {
-  font-family: Circular;
-  src: url("./fonts/lineto-circular-pro-bold.woff") format('woff');
-  font-weight: bold;
-  font-display: swap;
-}
-
 html{
   overflow-y:scroll
 }
