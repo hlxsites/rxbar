@@ -31,6 +31,13 @@ export default async function decorate(block) {
     nav.innerHTML = html;
     decorateIcons(nav);
 
+    const accountHead = document.createElement('div');
+    accountHead.classList.add('account-head');
+    accountHead.innerHTML = nav.children[0].innerHTML;
+    decorateIcons(accountHead);
+    nav.children[0].remove();
+    block.prepend(accountHead);
+
     const classes = ['brand', 'sections', 'tools'];
     classes.forEach((e, j) => {
       const section = nav.children[j];

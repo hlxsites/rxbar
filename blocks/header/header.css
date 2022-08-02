@@ -14,6 +14,7 @@ header nav {
   box-sizing: border-box;
   font-family: var(--body-font-family);
   border-bottom: 3px solid black;
+  margin-top: 40px;
 }
 
 header nav a:any-link {
@@ -32,6 +33,47 @@ header nav[aria-expanded='true'] {
   padding: 0 1.3rem;
   padding-top: 14px;
   grid-template-rows: 70px 1fr 150px;
+}
+
+/* account head */
+header .account-head {
+  height: var(--account-header-height);
+  background-color: #000;
+  color: #fff;
+  fill: #fff;
+  font-size: var(--body-font-size-s);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+}
+
+header p {
+  flex-grow: 1;
+}
+
+header .account-head ul {
+  list-style: none;
+  width: 130px;
+  display: flex;
+  gap: 30px;
+  padding: 0;
+  margin: 0;
+  justify-content: flex-start;
+  height: 100%;
+  align-items: center;
+}
+
+header .account-head ul li {
+  width: 30px;
+  height: 30px;
+}
+
+header .account-head ul li:nth-of-type(2) {
+  width: 25px;
+  height: 25px;
 }
 
 /* brand */
