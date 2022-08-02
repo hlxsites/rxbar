@@ -9,6 +9,5 @@ sampleRUM('cwv');
 // Initialize storefront-sdk
 const options = {
   endpoint: 'https://helix-ystxy6i-egytbxb7cxneo.us-4.magentosite.cloud/graphql',
-  mesh: 'storefrontstaticenvmesh',
 };
 render(options, document.body);

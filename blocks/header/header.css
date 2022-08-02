@@ -71,11 +71,6 @@ header .account-head ul li {
   height: 30px;
 }
 
-header .account-head ul li:nth-of-type(2) {
-  width: 25px;
-  height: 25px;
-}
-
 /* brand */
 header .nav-brand {
   grid-area: brand;
