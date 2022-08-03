@@ -42,6 +42,7 @@
 
   /* nav height */
   --nav-height: 80px;
+  --account-header-height: 40px;
 }
 
 html{
@@ -63,7 +64,7 @@ body.appear {
 }
 
 header {
-  height: var(--nav-height);
+  height: calc(var(--nav-height) + var(--account-header-height));
 }
 
 h1, h2, h3,
