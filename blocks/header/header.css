@@ -56,14 +56,14 @@ header p {
 
 header .account-head ul {
   list-style: none;
-  width: 130px;
-  display: flex;
+  width: 150px;
   gap: 30px;
   padding: 0;
   margin: 0;
   justify-content: flex-start;
   height: 100%;
   align-items: center;
+  display: none;
 }
 
 header .account-head ul li {
@@ -231,6 +231,10 @@ header nav[aria-expanded='true'] .nav-tools li {
     justify-content: space-between;
     height: var(--nav-height);
     padding: 16px 2rem;
+  }
+
+  header .account-head ul {
+    display: flex;
   }
 
   header nav .nav-sections > ul > li.nav-drop {
